@@ -11,7 +11,7 @@ export default function Nav() {
           Ethiopian National COC
         </span>
       </Navbar.Brand>
-      <div className="flex md:order-2 mr-24">
+      <div className="flex md:order-2">
         <div className="flex flex-col px-5 text-slate-500">
           <h1 className="self-center font-bold ">Amanuel Belay</h1>
           <p className="self-end justify-self-end text-xs">Medical Doctor</p>
