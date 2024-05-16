@@ -1,6 +1,7 @@
 import Layout from "./components/Layout";
 import LineChart from "./components/LineChart";
 import StatsCard from "./components/StatCard";
+import Table from "./components/Table";
 
 export default function App() {
   const data = [
@@ -208,17 +209,32 @@ export default function App() {
   };
   return (
     <Layout>
-      <div className="flex m-10 gap-10 ml-16">
-        <div className="flex flex-col gap-20 w-full">
+      <div className="flex m-10 ml-16">
+        <div className="flex flex-col gap-8 w-full">
           <div className="flex gap-2 ">
             {data.map((item) => (
               <StatsCard {...item} />
             ))}
           </div>
-          <LineChart options={options} />
-          <div className="flex">Table</div>
+          <div className="flex min-w-full rounded-lg shadow-lg">
+            <LineChart options={options} />
+            <hr className="w-px h-[90%] bg-gray-200 border-0 dark:bg-gray-700" />
+            <div className="ml-1 text-center flex flex-col justify-between flex-wrap">
+              <h1 className="text-xl mx-20">Total COC Created this month</h1>
+              <div className="mb-5">
+                <h1 className="text-7xl font-bold">2460</h1>
+                <p>
+                  <span className="text-green-500 font-bold">+23%</span> since
+                  last month
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="">
+            <Table />
+          </div>
         </div>
-        <div className="w-1/2 shadow-lg p-4">
+        <div className="w-1/2 shadow-lg p-4 ml-3">
           <div className="flex">Progress card</div>
           <div className="flex">Circle card</div>
         </div>
