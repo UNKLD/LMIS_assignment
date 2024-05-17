@@ -1,5 +1,7 @@
 import Layout from "./components/Layout";
 import LineChart from "./components/LineChart";
+import PieChart from "./components/PieChart";
+import ProgressBar from "./components/ProgressBar";
 import StatsCard from "./components/StatCard";
 import Table from "./components/Table";
 
@@ -19,14 +21,14 @@ export default function App() {
           <path
             d="M12.8461 13C15.8801 13 18.3396 10.5748 18.3396 7.58329C18.3396 4.59175 15.8801 2.16663 12.8461 2.16663C9.81219 2.16663 7.35269 4.59175 7.35269 7.58329C7.35269 10.5748 9.81219 13 12.8461 13Z"
             stroke="#20AEF3"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <path
             d="M17.2412 17.3333H23.8333M18.3399 23.8333H5.44786C5.13625 23.8334 4.82819 23.7681 4.54413 23.6418C4.26006 23.5155 4.00649 23.3311 3.80024 23.1008C3.59398 22.8704 3.43977 22.5995 3.34783 22.3059C3.25589 22.0124 3.22832 21.7029 3.26696 21.398L3.69545 18.0136C3.7951 17.2274 4.18262 16.5041 4.78516 15.9798C5.3877 15.4555 6.16374 15.1663 6.96735 15.1666H7.35299L18.3399 23.8333ZM20.5373 14.0833V20.5833V14.0833Z"
             stroke="#20AEF3"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       )
@@ -69,8 +71,8 @@ export default function App() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M7.58398 6.50001V6.49994C7.58398 4.70501 9.03906 3.24994 10.834 3.24994H15.1673C16.9622 3.24994 18.4173 4.70501 18.4173 6.49994V6.50001H21.6673C23.4622 6.50001 24.9173 7.95509 24.9173 9.75001V20.5833C24.9173 22.3783 23.4622 23.8333 21.6673 23.8333H4.33398C2.53906 23.8333 1.08398 22.3783 1.08398 20.5833V9.75001C1.08398 7.95509 2.53906 6.50001 4.33398 6.50001H7.58398ZM9.75195 6.49998C9.75195 5.90168 10.237 5.41665 10.8353 5.41665H15.1686C15.7669 5.41665 16.252 5.90168 16.252 6.49998H9.75195ZM4.33529 8.66666C3.73698 8.66666 3.25195 9.15169 3.25195 9.75V20.5833C3.25195 21.1816 3.73698 21.6667 4.33529 21.6667H4.87695V8.66666H4.33529ZM18.959 21.6667H7.04362V8.66666H18.959V21.6667ZM21.1257 21.6667H21.6686C22.2669 21.6667 22.752 21.1816 22.752 20.5833V9.75C22.752 9.15169 22.2669 8.66666 21.6686 8.66666H21.1257V21.6667Z"
             fill="#32A583"
           />
@@ -91,14 +93,14 @@ export default function App() {
           <path
             d="M12.8462 13C15.8801 13 18.3396 10.5748 18.3396 7.58329C18.3396 4.59175 15.8801 2.16663 12.8462 2.16663C9.81222 2.16663 7.35272 4.59175 7.35272 7.58329C7.35272 10.5748 9.81222 13 12.8462 13Z"
             stroke="#20AEF3"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           />
           <path
             d="M17.2412 17.3333H23.8333M18.3399 23.8333H5.44786C5.13625 23.8334 4.82819 23.7681 4.54413 23.6418C4.26006 23.5155 4.00649 23.3311 3.80024 23.1008C3.59398 22.8704 3.43977 22.5995 3.34783 22.3059C3.25589 22.0124 3.22832 21.7029 3.26696 21.398L3.69545 18.0136C3.7951 17.2274 4.18262 16.5041 4.78516 15.9798C5.3877 15.4555 6.16374 15.1663 6.96735 15.1666H7.35299L18.3399 23.8333ZM20.5373 14.0833V20.5833V14.0833Z"
             stroke="#20AEF3"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       )
@@ -118,106 +120,69 @@ export default function App() {
           <path
             d="M17.9967 3.69315H20.7625C21.0589 3.69315 21.3431 3.81204 21.5527 4.02367C21.7623 4.2353 21.88 4.52233 21.88 4.82163V23.4415C21.88 23.7408 21.7623 24.0279 21.5527 24.2395C21.3431 24.4511 21.0589 24.57 20.7625 24.57H5.1175C4.82112 24.57 4.53688 24.4511 4.32731 24.2395C4.11774 24.0279 4 23.7408 4 23.4415V4.82163C4 4.52233 4.11774 4.2353 4.32731 4.02367C4.53688 3.81204 4.82112 3.69315 5.1175 3.69315H9.02875V5.38587H16.8512V3.69315H17.9967Z"
             stroke="#5A8998"
-            stroke-width="2"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinejoin="round"
           />
           <path
             d="M14.6167 10.4636L10.1467 14.9781H15.7364L11.2642 19.492M9.02917 2H16.8517V5.38544H9.02917V2Z"
             stroke="#5A8998"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       )
     }
   ];
 
-  const options = {
-    chart: {
-      height: "100%",
-      maxWidth: "100%",
-      type: "line",
-      fontFamily: "Inter, sans-serif",
-      dropShadow: {
-        enabled: false
-      },
-      toolbar: {
-        show: false
-      }
+  const cities = [
+    {
+      title: "Addis Ababa",
+      progress: "70%",
+      amaount: "1300"
     },
-    tooltip: {
-      enabled: true,
-      x: {
-        show: false
-      }
+    {
+      title: "Adama",
+      progress: "70%",
+      amaount: "1300"
     },
-    dataLabels: {
-      enabled: false
+    {
+      title: "Jimma",
+      progress: "70%",
+      amaount: "1300"
     },
-
-    grid: {
-      show: true,
-      strokeDashArray: 4,
-      padding: {
-        left: 2,
-        right: 2,
-        top: -26
-      }
+    {
+      title: "Hawassa",
+      progress: "70%",
+      amaount: "1300"
     },
-    series: [
-      {
-        name: "Clicks",
-        data: [6500, 6418, 6456, 6526, 6356, 6456],
-        color: "#1A56DB"
-      }
-    ],
-    legend: {
-      show: false
+    {
+      title: "Gonder",
+      progress: "70%",
+      amaount: "1300"
     },
-    stroke: {
-      width: 6,
-      curve: "smooth"
+    {
+      title: "Harari",
+      progress: "70%",
+      amaount: "1300"
     },
-    xaxis: {
-      categories: [
-        "01 Feb",
-        "02 Feb",
-        "03 Feb",
-        "04 Feb",
-        "05 Feb",
-        "06 Feb",
-        "07 Feb"
-      ],
-      labels: {
-        show: true,
-        style: {
-          fontFamily: "Inter, sans-serif",
-          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400"
-        }
-      },
-      axisBorder: {
-        show: false
-      },
-      axisTicks: {
-        show: false
-      }
-    },
-    yaxis: {
-      show: false
+    {
+      title: "Dire Dawa",
+      progress: "70%",
+      amaount: "1300"
     }
-  };
+  ];
   return (
     <Layout>
       <div className="flex m-10 ml-16">
         <div className="flex flex-col gap-8 w-full">
           <div className="flex gap-2 ">
-            {data.map((item) => (
-              <StatsCard {...item} />
+            {data.map((item, i) => (
+              <StatsCard key={i} {...item} />
             ))}
           </div>
           <div className="flex min-w-full rounded-lg shadow-lg">
-            <LineChart options={options} />
+            <LineChart />
             <hr className="w-px h-[90%] bg-gray-200 border-0 dark:bg-gray-700" />
             <div className="ml-1 text-center flex flex-col justify-between flex-wrap">
               <h1 className="text-xl mx-20">Total COC Created this month</h1>
@@ -234,9 +199,27 @@ export default function App() {
             <Table />
           </div>
         </div>
-        <div className="w-1/2 shadow-lg p-4 ml-3">
-          <div className="flex">Progress card</div>
-          <div className="flex">Circle card</div>
+        <div className="w-1/2 px-4 ml-3">
+          <div className="rounded-xl shadow-lg mb-4 px-6 pb-5">
+            <h1 className="text-xl font-bold mb-6 pt-3">COC by City</h1>
+            {cities.map((city, i) => (
+              <div className="flex items-center gap-5 w-full my-6" key={i}>
+                <div className="w-1/2 font-bold text-slate-500">
+                  <p>{city.title}</p>
+                </div>
+                <div className="w-[80%]">
+                  <ProgressBar progress={city.progress} />
+                </div>
+                <div className="w-1/5 text-slate-500 pl-6">
+                  {Number(city.amaount).toLocaleString()}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-xl shadow-lg">
+            {/* <h1 className="text-xl font-bold mb-4 p-4">Competency</h1> */}
+            <PieChart />
+          </div>
         </div>
       </div>
     </Layout>
