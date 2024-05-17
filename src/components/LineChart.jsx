@@ -8,8 +8,8 @@ function LineChart({ series, categories }) {
   const getChartOptions = () => {
     return {
       chart: {
-        height: "100%",
-        maxWidth: "105%",
+        height: 250,
+        // maxWidth: "100%",
         type: "line",
         fontFamily: "Inter, sans-serif",
         dropShadow: {
@@ -33,7 +33,7 @@ function LineChart({ series, categories }) {
         show: true,
         strokeDashArray: 4
       },
-      series: series,
+      series: series ? series : [],
       legend: {
         show: false
       },
@@ -42,7 +42,9 @@ function LineChart({ series, categories }) {
         curve: "smooth"
       },
       xaxis: {
-        categories: categories?.map((item) => item.slice(0, 3)),
+        categories: categories
+          ? categories.map((item) => item.slice(0, 3))
+          : [],
         labels: {
           show: true,
           style: {
@@ -64,15 +66,18 @@ function LineChart({ series, categories }) {
   };
 
   useEffect(() => {
-    if (
-      document.getElementById("line-chart") &&
-      typeof ApexCharts !== "undefined"
-    ) {
-      const chart = new ApexCharts(
-        document.getElementById("line-chart"),
-        getChartOptions()
-      );
-      chart.render();
+    if (series) {
+      if (
+        document.getElementById("line-chart") &&
+        typeof ApexCharts !== "undefined"
+      ) {
+        const chart = new ApexCharts(
+          document.getElementById("line-chart"),
+          getChartOptions()
+        );
+        chart.render();
+        window.dispatchEvent(new Event("resize"));
+      }
     }
   }, [series]);
 
