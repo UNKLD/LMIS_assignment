@@ -43,7 +43,11 @@ function Table({ data }) {
                 />
                 {item.first_name + " " + item.father_name}
               </th>
-              <td className="px-6 py-4">
+              <td
+                className={`px-6 py-4 ${
+                  item.assessed ? "text-green-500" : "text-red-700"
+                }`}
+              >
                 {item.assessed ? "Assessed" : "Not Assessed"}
               </td>
               <td className="px-6 py-4">{item.reg_no}</td>
