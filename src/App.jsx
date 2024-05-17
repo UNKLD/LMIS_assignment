@@ -64,18 +64,22 @@ export default function App() {
             ))}
           </div>
           <div className="flex min-w-full rounded-lg shadow-lg">
-            <LineChart
-              series={[
-                {
-                  name: "COC",
-                  data: dashData?.totalCocByMonth?.map(
-                    (data) => data._count.month
-                  ),
-                  color: "#32A583"
-                }
-              ]}
-              categories={dashData?.totalCocByMonth?.map((data) => data.month)}
-            />
+            {dashData && (
+              <LineChart
+                series={[
+                  {
+                    name: "COC",
+                    data: dashData?.totalCocByMonth?.map(
+                      (data) => data._count.month
+                    ),
+                    color: "#32A583"
+                  }
+                ]}
+                categories={dashData?.totalCocByMonth?.map(
+                  (data) => data.month
+                )}
+              />
+            )}
             <hr className="w-px h-[90%] bg-gray-200 border-0 dark:bg-gray-700" />
             <div className="ml-1 text-center flex flex-col justify-between items-center flex-wrap">
               <h1 className="text-2xl mx-16 text-start">
@@ -112,12 +116,14 @@ export default function App() {
             ))}
           </div>
           <div className="rounded-xl shadow-lg">
-            <PieChart
-              series={dashData?.totalPracticalPassedAndFailed?.map(
-                (data) => data._count.practical_result
-              )}
-              labels={["Total Passed", "Total Failed"]}
-            />
+            {dashData && (
+              <PieChart
+                series={dashData?.totalPracticalPassedAndFailed?.map(
+                  (data) => data._count.practical_result
+                )}
+                labels={["Total Passed", "Total Failed"]}
+              />
+            )}
           </div>
         </div>
       </div>

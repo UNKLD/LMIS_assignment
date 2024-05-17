@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import propTypes from "prop-types";
+import ApexCharts from "apexcharts";
 
 function PieChart({ series, labels }) {
+  const [display, setDisplay] = useState(false);
   const getChartOptions = () => {
     return {
       series: series,
@@ -62,17 +64,20 @@ function PieChart({ series, labels }) {
   };
 
   useEffect(() => {
-    if (
-      document.getElementById("pie-chart") &&
-      typeof ApexCharts !== "undefined"
-    ) {
-      const chart = new ApexCharts(
-        document.getElementById("pie-chart"),
-        getChartOptions()
-      );
-      chart.render();
-    }
+    const chart = new ApexCharts(
+      document.getElementById("pie-chart"),
+      getChartOptions()
+    );
+    chart.render();
+  }, [series]);
+
+  useEffect(() => {
+    setTimeout(() => setDisplay(true), 1);
   }, []);
+
+  if (!display) {
+    return <></>;
+  }
 
   return (
     <div className=" w-full p-4 md:p-6">

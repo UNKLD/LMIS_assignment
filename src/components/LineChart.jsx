@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ApexCharts from "apexcharts";
 
 function LineChart({ series, categories }) {
+  const [display, setDisplay] = useState(false);
   const options = {
     chart: {
       height: "100%",
@@ -64,7 +66,16 @@ function LineChart({ series, categories }) {
       options
     );
     chart.render();
-  }, [options]);
+  }, [series]);
+
+  useEffect(() => {
+    setTimeout(() => setDisplay(true), 1);
+  }, []);
+
+  if (!display) {
+    return <></>;
+  }
+
   return (
     <div className="max-w-sm bg-white rounded-lg dark:bg-gray-800 p-4 md:p-6 min-w-[55%] border-none">
       <div className="flex justify-between mb-5">
