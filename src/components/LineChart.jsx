@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 
-function LineChart() {
+function LineChart({ series, categories }) {
   const options = {
     chart: {
       height: "100%",
-      maxWidth: "100%",
+      maxWidth: "105%",
       type: "line",
       fontFamily: "Inter, sans-serif",
       dropShadow: {
@@ -26,20 +26,9 @@ function LineChart() {
 
     grid: {
       show: true,
-      strokeDashArray: 4,
-      padding: {
-        left: 2,
-        right: 2,
-        top: -26
-      }
+      strokeDashArray: 4
     },
-    series: [
-      {
-        name: "Clicks",
-        data: [6500, 6418, 6456, 6526, 6356, 6456],
-        color: "#1A56DB"
-      }
-    ],
+    series: series,
     legend: {
       show: false
     },
@@ -48,20 +37,12 @@ function LineChart() {
       curve: "smooth"
     },
     xaxis: {
-      categories: [
-        "01 Feb",
-        "02 Feb",
-        "03 Feb",
-        "04 Feb",
-        "05 Feb",
-        "06 Feb",
-        "07 Feb"
-      ],
+      categories: categories?.map((item) => item.slice(0, 3)),
       labels: {
         show: true,
         style: {
           fontFamily: "Inter, sans-serif",
-          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400"
+          cssClass: "text-xs fill-gray-500 dark:fill-gray-400"
         }
       },
       axisBorder: {
@@ -83,7 +64,7 @@ function LineChart() {
     chart.render();
   }, [options]);
   return (
-    <div className="max-w-sm bg-white rounded-lg dark:bg-gray-800 p-4 md:p-6 min-w-[50%] border-none">
+    <div className="max-w-sm bg-white rounded-lg dark:bg-gray-800 p-4 md:p-6 min-w-[55%] border-none p-0">
       <div className="flex justify-between mb-5">
         <div className="grid gap-4 grid-cols-1">
           <div>
