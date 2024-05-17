@@ -5,61 +5,64 @@ import ApexCharts from "apexcharts";
 
 function LineChart({ series, categories }) {
   const [display, setDisplay] = useState(false);
-  const options = {
-    chart: {
-      height: "100%",
-      maxWidth: "105%",
-      type: "line",
-      fontFamily: "Inter, sans-serif",
-      dropShadow: {
-        enabled: false
-      },
-      toolbar: {
-        show: false
-      }
-    },
-    tooltip: {
-      enabled: true,
-      x: {
-        show: false
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
-
-    grid: {
-      show: true,
-      strokeDashArray: 4
-    },
-    series: series,
-    legend: {
-      show: false
-    },
-    stroke: {
-      width: 6,
-      curve: "smooth"
-    },
-    xaxis: {
-      categories: categories?.map((item) => item.slice(0, 3)),
-      labels: {
-        show: true,
-        style: {
-          fontFamily: "Inter, sans-serif",
-          cssClass: "text-xs fill-gray-500 dark:fill-gray-400"
+  const getChartOptions = () => {
+    return {
+      chart: {
+        height: "100%",
+        maxWidth: "105%",
+        type: "line",
+        fontFamily: "Inter, sans-serif",
+        dropShadow: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
         }
       },
-      axisBorder: {
+      tooltip: {
+        enabled: true,
+        x: {
+          show: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+
+      grid: {
+        show: true,
+        strokeDashArray: 4
+      },
+      series: series,
+      legend: {
         show: false
       },
-      axisTicks: {
+      stroke: {
+        width: 6,
+        curve: "smooth"
+      },
+      xaxis: {
+        categories: categories?.map((item) => item.slice(0, 3)),
+        labels: {
+          show: true,
+          style: {
+            fontFamily: "Inter, sans-serif",
+            cssClass: "text-xs fill-gray-500 dark:fill-gray-400"
+          }
+        },
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        }
+      },
+      yaxis: {
         show: false
       }
-    },
-    yaxis: {
-      show: false
-    }
+    };
   };
+
   useEffect(() => {
     if (
       document.getElementById("line-chart") &&
@@ -67,7 +70,7 @@ function LineChart({ series, categories }) {
     ) {
       const chart = new ApexCharts(
         document.getElementById("line-chart"),
-        options
+        getChartOptions()
       );
       chart.render();
     }
@@ -82,7 +85,7 @@ function LineChart({ series, categories }) {
   }
 
   return (
-    <div className="max-w-sm bg-white rounded-lg dark:bg-gray-800 p-4 md:p-6 min-w-[55%] border-none">
+    <div className="bg-white rounded-lg dark:bg-gray-800 p-4 md:p-6 min-w-[55%] border-none">
       <div className="flex justify-between mb-5">
         <div className="grid gap-4 grid-cols-1">
           <div>

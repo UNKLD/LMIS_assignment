@@ -64,22 +64,19 @@ export default function App() {
             ))}
           </div>
           <div className="flex min-w-full rounded-lg shadow-lg">
-            {dashData && (
-              <LineChart
-                series={[
-                  {
-                    name: "COC",
-                    data: dashData?.totalCocByMonth?.map(
-                      (data) => data._count.month
-                    ),
-                    color: "#32A583"
-                  }
-                ]}
-                categories={dashData?.totalCocByMonth?.map(
-                  (data) => data.month
-                )}
-              />
-            )}
+            <LineChart
+              series={[
+                {
+                  name: "COC",
+                  data: dashData?.totalCocByMonth?.map(
+                    (data) => data._count.month
+                  ),
+                  color: "#32A583"
+                }
+              ]}
+              categories={dashData?.totalCocByMonth?.map((data) => data.month)}
+            />
+
             <hr className="w-px h-[90%] bg-gray-200 border-0 dark:bg-gray-700" />
             <div className="ml-1 text-center flex flex-col justify-between items-center flex-wrap">
               <h1 className="text-2xl mx-16 text-start">
@@ -90,7 +87,7 @@ export default function App() {
                   {dashData?.totalCocThisMonth}
                 </h1>
                 <p>
-                  <span className="text-green-500 font-bold">+23%</span> since
+                  <span className="text-green-500 font-bold">+0%</span> since
                   last month
                 </p>
               </div>
@@ -116,14 +113,12 @@ export default function App() {
             ))}
           </div>
           <div className="rounded-xl shadow-lg">
-            {dashData && (
-              <PieChart
-                series={dashData?.totalPracticalPassedAndFailed?.map(
-                  (data) => data._count.practical_result
-                )}
-                labels={["Total Passed", "Total Failed"]}
-              />
-            )}
+            <PieChart
+              series={dashData?.totalPracticalPassedAndFailed?.map(
+                (data) => data._count.practical_result
+              )}
+              labels={["Total Passed", "Total Failed"]}
+            />
           </div>
         </div>
       </div>
