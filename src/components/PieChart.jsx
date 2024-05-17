@@ -1,10 +1,11 @@
 import { useEffect } from "react";
+import propTypes from "prop-types";
 
-function PieChart() {
+function PieChart({ series, labels }) {
   const getChartOptions = () => {
     return {
-      series: [52.8, 26.8, 20.4],
-      colors: ["#1C64F2", "#16BDCA", "#9061F9"],
+      series: series,
+      colors: ["#23E7AD", "#FF6868"],
       chart: {
         height: 420,
         width: "100%",
@@ -25,7 +26,7 @@ function PieChart() {
           }
         }
       },
-      labels: ["Direct", "Organic search", "Referrals"],
+      labels: labels,
       dataLabels: {
         enabled: true,
         style: {
@@ -33,6 +34,7 @@ function PieChart() {
         }
       },
       legend: {
+        show: true,
         position: "bottom",
         fontFamily: "Inter, sans-serif"
       },
@@ -121,5 +123,10 @@ function PieChart() {
     </div>
   );
 }
+
+PieChart.propTypes = {
+  series: propTypes.array.isRequired,
+  labels: propTypes.array.isRequired
+};
 
 export default PieChart;

@@ -112,7 +112,12 @@ export default function App() {
             ))}
           </div>
           <div className="rounded-xl shadow-lg">
-            <PieChart />
+            <PieChart
+              series={dashData?.totalPracticalPassedAndFailed?.map(
+                (data) => data._count.practical_result
+              )}
+              labels={["Total Passed", "Total Failed"]}
+            />
           </div>
         </div>
       </div>
