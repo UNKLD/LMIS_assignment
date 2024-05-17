@@ -61,11 +61,16 @@ function LineChart({ series, categories }) {
     }
   };
   useEffect(() => {
-    const chart = new ApexCharts(
-      document.getElementById("line-chart"),
-      options
-    );
-    chart.render();
+    if (
+      document.getElementById("line-chart") &&
+      typeof ApexCharts !== "undefined"
+    ) {
+      const chart = new ApexCharts(
+        document.getElementById("line-chart"),
+        options
+      );
+      chart.render();
+    }
   }, [series]);
 
   useEffect(() => {

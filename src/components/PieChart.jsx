@@ -64,11 +64,16 @@ function PieChart({ series, labels }) {
   };
 
   useEffect(() => {
-    const chart = new ApexCharts(
-      document.getElementById("pie-chart"),
-      getChartOptions()
-    );
-    chart.render();
+    if (
+      document.getElementById("pie-chart") &&
+      typeof ApexCharts !== "undefined"
+    ) {
+      const chart = new ApexCharts(
+        document.getElementById("pie-chart"),
+        getChartOptions()
+      );
+      chart.render();
+    }
   }, [series]);
 
   useEffect(() => {
