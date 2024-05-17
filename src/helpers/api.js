@@ -17,11 +17,14 @@ export const search_COC = async (params) => {
   }
 };
 
-export const get_COC_All = async () => {
+export const get_COC_All = async (page, limit) => {
   try {
-    const response = await axios.get(`${BASE_URL}/coc/get-all`, {
-      headers
-    });
+    const response = await axios.get(
+      `${BASE_URL}/coc/get-all?page=${page}&limit=${limit}`,
+      {
+        headers
+      }
+    );
     return response.data;
   } catch (error) {
     console.error("Error while fetching data from API", error);

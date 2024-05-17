@@ -6,10 +6,12 @@ import ProgressBar from "./components/ProgressBar";
 import StatsCard from "./components/StatCard";
 import Table from "./components/Table";
 import { Dash1, Dash2, Dash3, Dash4, Dash5 } from "./helpers/icons";
-import { get_Dashboard_Data } from "./helpers/api";
+import { get_COC_All, get_Dashboard_Data } from "./helpers/api";
+import { cities } from "./helpers/helper";
 
 export default function App() {
   const [dashData, setDashData] = useState([]);
+  const [tableData, setTableData] = useState([]);
   const statCardsInfo = [
     {
       title: "Total COC",
@@ -39,20 +41,12 @@ export default function App() {
     }
   ];
 
-  const cities = [
-    { AA: "Addis Ababa" },
-    { AD: "Adama" },
-    { BJ: "Bahir Dar" },
-    { DB: "Dessie" },
-    { GB: "Gondar" },
-    { HR: "Harar" },
-    { JG: "Jigjiga" },
-    { MD: "Mekelle " }
-  ];
-
   useEffect(() => {
     get_Dashboard_Data().then((data) => {
       setDashData(data);
+    });
+    get_COC_All(1, 5).then((data) => {
+      setTableData(data);
     });
   }, []);
   return (
@@ -98,9 +92,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div className="">
-            <Table />
-          </div>
+          {<Table data={tableData || []} />}
         </div>
         <div className="w-1/2 px-4 ml-3">
           <div className="rounded-xl shadow-lg mb-4 px-6 pb-5">

@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+/* eslint-disable react/prop-types */
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 
 function LineChart({ series, categories }) {
   const options = {
@@ -64,7 +66,7 @@ function LineChart({ series, categories }) {
     chart.render();
   }, [options]);
   return (
-    <div className="max-w-sm bg-white rounded-lg dark:bg-gray-800 p-4 md:p-6 min-w-[55%] border-none p-0">
+    <div className="max-w-sm bg-white rounded-lg dark:bg-gray-800 p-4 md:p-6 min-w-[55%] border-none">
       <div className="flex justify-between mb-5">
         <div className="grid gap-4 grid-cols-1">
           <div>
